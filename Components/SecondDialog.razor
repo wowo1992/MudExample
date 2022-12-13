@@ -1,0 +1,27 @@
+﻿<MudDialog>
+    <DialogContent>
+		<MudDataGrid Items="@Elements">
+            <Columns>
+                <Column T="Element" Field="Number" Title="Nr" />
+                <Column T="Element" Field="Sign" />
+                <Column T="Element" Field="Name" />
+            </Columns>
+        </MudDataGrid>
+	</DialogContent>
+</MudDialog>
+
+@code {
+    IEnumerable<Element> Elements => new[] { 
+        new Element { Number = 1, Sign = "T1", Name = "Test1" },
+        new Element { Number = 2, Sign = "T2", Name = "Test2" },
+        new Element { Number = 3, Sign = "T3", Name = "Test3" },
+        new Element { Number = 4, Sign = "T4", Name = "Test4" },
+    };
+
+    class Element
+    {
+        public int Number { get; set; }
+        public string? Sign { get; set; }
+        public string? Name { get; set; }
+    }
+}

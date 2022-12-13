@@ -1,0 +1,17 @@
+﻿@inject IDialogService _dialogService
+
+<MudDialog>
+	<DialogContent>
+		<MudButton FullWidth="true" OnClick="OpenSecondDialog" Color="Color.Success" Variant="Variant.Filled">
+			Click Here to open second dialog with DataGrid inside
+		</MudButton>
+	</DialogContent>
+</MudDialog>
+
+@code {
+	async Task OpenSecondDialog()
+	{
+		var dialog = _dialogService.Show<SecondDialog>();
+		await dialog.Result;
+	}
+}
