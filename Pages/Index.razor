@@ -4,8 +4,12 @@
 
 <PageTitle>Index</PageTitle>
 
-<MudButton FullWidth="true" OnClick="OpenFirstDialog" Color="Color.Success" Variant="Variant.Filled">
-	Click here to open first dialog
+<MudButton FullWidth="true" OnClick="OpenSecondDialog" Color="Color.Success" Variant="Variant.Filled">
+	Click here to open example dialog
+</MudButton>
+
+<MudButton FullWidth="true" OnClick="OpenFirstDialog" Color="Color.Success" Variant="Variant.Filled" Class="my-3">
+	Click here to open nested dialog
 </MudButton>
 
 <MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
@@ -16,6 +20,12 @@
 	async Task OpenFirstDialog()
 	{
 		var dialog = _dialogService.Show<FirstDialog>();
+		await dialog.Result;
+	}
+
+	async Task OpenSecondDialog()
+	{
+		var dialog = _dialogService.Show<SecondDialog>();
 		await dialog.Result;
 	}
 }
